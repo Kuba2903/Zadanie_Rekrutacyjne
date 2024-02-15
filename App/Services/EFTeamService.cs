@@ -11,9 +11,6 @@ namespace App.Services
         {
             _dbContext = context;
         }
-        public List<TeamModel> GetTeams()
-        {
-            throw new NotImplementedException();
-        }
+        public List<TeamModel> GetTeams() => _dbContext.Teams.Select(t => Mapper.EntityToModel(t)).ToList();
     }
 }
