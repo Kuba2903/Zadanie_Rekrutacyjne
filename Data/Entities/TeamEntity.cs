@@ -13,6 +13,8 @@ namespace Data.Entities
     {
         public int Id { get; set; }
 
+        public string League_Name { get; set; }
+
         public byte League_Position { get; set; }
 
         [Required]
