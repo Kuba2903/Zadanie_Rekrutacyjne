@@ -13,8 +13,6 @@ namespace Data.Entities
     {
         public int Id { get; set; }
 
-        public string League_Name { get; set; }
-
         public byte League_Position { get; set; }
 
         [Required]
@@ -22,9 +20,9 @@ namespace Data.Entities
         
         public byte Matches_Played { get; set; }
 
-        public byte Points { get; set; }
+        public sbyte Points { get; set; }
 
-        public byte Goal_Diff { get; set; }
+        public sbyte Goal_Diff { get; set; }
 
         public byte Wins { get; set; }
 
