@@ -1,3 +1,6 @@
+using App.Services;
+using Data;
+
 namespace App
 {
     public class Program
@@ -8,6 +11,8 @@ namespace App
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<AppDbContext>();
+            builder.Services.AddTransient<ITeamService,EFTeamService>();
 
             var app = builder.Build();
 
