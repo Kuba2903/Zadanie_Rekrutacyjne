@@ -1,12 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using App.Services;
+using Data;
+using Microsoft.AspNetCore.Mvc;
 
 namespace App.Controllers
 {
     public class LeaguesController : Controller
     {
-        public IActionResult Index()
+        private readonly ITeamService _service;
+
+        public LeaguesController(ITeamService service)
         {
-            return View();
+            this._service = service;
+        }
+        [HttpGet]
+        public IActionResult Table()
+        {
+            return View(_service.GetTeams());
         }
     }
 }
