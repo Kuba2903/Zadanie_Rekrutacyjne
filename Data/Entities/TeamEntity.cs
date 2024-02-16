@@ -31,5 +31,6 @@ namespace Data.Entities
         public byte Losts { get; set; }
 
 
+        public ISet<MatchEntity> Matches { get; set; }
     }
 }

@@ -248,6 +248,17 @@ namespace Data
                 }
                 
                 );
+
+            modelBuilder.Entity<MatchEntity>()
+                .HasOne(e => e.HomeTeam)
+                .WithMany(e => e.Matches)
+                .HasForeignKey(e => e.HomeTeam.Id);
+
+            modelBuilder.Entity<MatchEntity>()
+                .HasOne(m => m.AwayTeam)
+                .WithMany(m => m.Matches)
+                .HasForeignKey(m => m.AwayTeam.Id);
+
         }
     }
 }
