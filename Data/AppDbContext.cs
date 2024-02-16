@@ -11,6 +11,7 @@ namespace Data
     public class AppDbContext : DbContext
     {
         public DbSet<TeamEntity> Teams { get; set; }
+        public DbSet<MatchEntity> Matches { get; set; }
 
         private string DbPath { get; set; }
         public AppDbContext()
@@ -246,8 +247,35 @@ namespace Data
                     Draws = 5,
                     Losts = 24
                 }
-                
+
                 );
+
+            modelBuilder.Entity<MatchEntity>()
+                .HasOne(e => e.HomeTeam)
+                .WithMany(e => e.HomeMatches) // Use a different navigation property for home matches
+                .HasForeignKey(e => e.HomeTeamId);
+
+            modelBuilder.Entity<MatchEntity>()
+                .HasOne(m => m.AwayTeam)
+                .WithMany(m => m.AwayMatches) // Use a different navigation property for away matches
+                .HasForeignKey(m => m.AwayTeamId);
+
+
+            modelBuilder.Entity<MatchEntity>()
+            .HasData(
+                new MatchEntity()
+                {
+                    Id = 1,
+                    Date = new DateTime(2023,2,16),
+                    HomeTeamId = 11, 
+                    AwayTeamId = 4, 
+                    HomeTeamScore = 2, 
+                    AwayTeamScore = 1 
+                }
+            );
+
+
+
         }
     }
 }

@@ -36,5 +36,32 @@ namespace App.Models
                 Losts = entity.Losts
             };
         }
+
+
+        public static MatchModel EntityToModel(MatchEntity entity)
+        {
+            return new MatchModel()
+            {
+                Id = entity.Id,
+                Date = entity.Date,
+                HomeTeamId = entity.HomeTeamId,
+                AwayTeamId = entity.AwayTeamId,
+                HomeTeamScore = entity.HomeTeamScore,
+                AwayTeamScore = entity.AwayTeamScore
+            };
+        }
+
+        public static MatchEntity ModelToEntity(MatchModel model)
+        {
+            return new MatchEntity()
+            {
+                Id = model.Id,
+                Date = model.Date,
+                HomeTeamId = model.HomeTeamId,
+                AwayTeamId = model.AwayTeamId,
+                HomeTeamScore = model.HomeTeamScore,
+                AwayTeamScore = model.AwayTeamScore
+            };
+        }
     }
 }
