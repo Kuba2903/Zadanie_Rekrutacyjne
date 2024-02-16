@@ -23,7 +23,7 @@ namespace App.Controllers
 
         public IActionResult Games()
         {
-            return View();
+            return View(_service.GetMatches());
         }
     }
 }
