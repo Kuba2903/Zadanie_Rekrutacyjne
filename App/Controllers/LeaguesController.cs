@@ -17,5 +17,13 @@ namespace App.Controllers
         {
             return View(_service.GetTeams());
         }
+
+
+        [HttpGet]
+
+        public IActionResult Games()
+        {
+            return View();
+        }
     }
 }

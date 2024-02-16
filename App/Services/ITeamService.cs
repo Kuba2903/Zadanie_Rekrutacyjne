@@ -5,5 +5,7 @@ namespace App.Services
     public interface ITeamService
     {
         List<TeamModel> GetTeams();
+
+        
     }
 }
