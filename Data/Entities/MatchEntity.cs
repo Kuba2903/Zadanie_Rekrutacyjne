@@ -14,6 +14,10 @@ namespace Data.Entities
 
         public DateTime Date { get; set; }
 
+        public int HomeTeamId { get; set; }
+        public int AwayTeamId { get; set; }
+
+
         public TeamEntity HomeTeam { get; set; }
 
         public TeamEntity AwayTeam { get; set; }
