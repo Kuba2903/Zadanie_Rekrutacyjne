@@ -11,6 +11,7 @@ namespace Data
     public class AppDbContext : DbContext
     {
         public DbSet<TeamEntity> Teams { get; set; }
+        public DbSet<MatchEntity> Matches { get; set; }
 
         private string DbPath { get; set; }
         public AppDbContext()

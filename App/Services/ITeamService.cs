@@ -6,6 +6,6 @@ namespace App.Services
     {
         List<TeamModel> GetTeams();
 
-        
+        List<MatchModel> GetMatches();
     }
 }
