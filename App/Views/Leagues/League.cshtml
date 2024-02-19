@@ -1,0 +1,30 @@
+﻿@model List<LeagueModel>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>Football leagues statistics</h1>
+
+<table class="table">
+    <tr>
+        <th>Country</th>
+        <th>Name</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Country</td>
+            <td>@x.Name</td>
+            <td>
+                <a class="btn btn-primary"
+                   asp-action="Table"
+                   asp-controller="Leagues"
+                   asp-route-id=@x.Id>Open</a>
+            </td>
+        </tr>
+    }
+</table>

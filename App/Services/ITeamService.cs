@@ -16,5 +16,7 @@ namespace App.Services
         void RemoveFavorite(string userId, int teamId);
 
         List<FavouriteTeamEntity> GetFavoriteTeams(string userId);
+
+        List<LeagueModel> GetLeague();
     }
 }

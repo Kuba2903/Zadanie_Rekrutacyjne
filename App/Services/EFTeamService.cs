@@ -59,5 +59,6 @@ namespace App.Services
 
         public List<FavouriteTeamEntity> GetFavoriteTeams(string userId) => _dbContext.Favourites.Where(ft => ft.UserId == userId).ToList();
 
+        public List<LeagueModel> GetLeague() => _dbContext.Leagues.Select(m => Mapper.EntityToModel(m)).ToList();
     }
 }

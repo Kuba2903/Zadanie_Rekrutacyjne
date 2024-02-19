@@ -14,6 +14,14 @@ namespace App.Controllers
         {
             this._service = service;
         }
+
+        [HttpGet]
+        public IActionResult League()
+        {
+            return View(_service.GetLeague());
+        }
+
+
         [HttpGet]
         public IActionResult Table()
         {
