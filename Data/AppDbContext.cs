@@ -13,6 +13,7 @@ namespace Data
     public class AppDbContext : IdentityDbContext<IdentityUser>
     {
         public DbSet<TeamEntity> Teams { get; set; }
+        public DbSet<LeagueEntity> Leagues { get; set; }
         public DbSet<MatchEntity> Matches { get; set; }
         public DbSet<FavouriteTeamEntity> Favourites { get; set; }
 
@@ -32,6 +33,14 @@ namespace Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<LeagueEntity>().HasData(
+                new LeagueEntity()
+                {
+                    Id = 1,
+                    Country = "Belgium",
+                    Name = "Jupiler Pro League"
+                }
+                );
 
             modelBuilder.Entity<TeamEntity>().HasData(
                 new TeamEntity()

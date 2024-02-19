@@ -63,5 +63,26 @@ namespace App.Models
                 AwayTeamScore = model.AwayTeamScore
             };
         }
+
+
+        public static LeagueEntity ModelToEntity(LeagueModel model)
+        {
+            return new LeagueEntity()
+            {
+                Id = model.Id,
+                Name = model.Name,
+                Country = model.Country
+            };
+        }
+
+        public static LeagueModel EntityToModel(LeagueEntity entity)
+        {
+            return new LeagueModel()
+            {
+                Id = entity.Id,
+                Name = entity.Name,
+                Country = entity.Country
+            };
+        }
     }
 }
