@@ -1,4 +1,6 @@
 ﻿using Data.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,10 +10,11 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<IdentityUser>
     {
         public DbSet<TeamEntity> Teams { get; set; }
         public DbSet<MatchEntity> Matches { get; set; }
+        public DbSet<FavouriteTeamEntity> Favourites { get; set; }
 
         private string DbPath { get; set; }
         public AppDbContext()
@@ -346,8 +349,29 @@ namespace Data
                 }
             );
 
+            string User_id = Guid.NewGuid().ToString();
+            var user = new IdentityUser
+            {
+                Id = User_id,
+                Email = "karolina@wsei.edu.pl",
+                EmailConfirmed = true,
+                UserName = "karolina",
+                NormalizedUserName = "KAROLINA",
+                NormalizedEmail = "KAROLINA@WSEI.EDU.PL"
+            };
+
+            PasswordHasher<IdentityUser> hasher = new PasswordHasher<IdentityUser>();
+            user.PasswordHash = hasher.HashPassword(user, "abcd1234!AB");
+
+            modelBuilder.Entity<IdentityUser>().HasData(user);
 
 
+            modelBuilder.Entity<FavouriteTeamEntity>()
+            .HasKey(t => t.Id);
+
+            modelBuilder.Entity<FavouriteTeamEntity>()
+                .HasIndex(t => new { t.UserId, t.TeamId })
+                .IsUnique();
         }
     }
 }

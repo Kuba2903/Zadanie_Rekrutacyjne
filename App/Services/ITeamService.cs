@@ -1,4 +1,5 @@
 ﻿using App.Models;
+using Data.Entities;
 
 namespace App.Services
 {
@@ -10,5 +11,10 @@ namespace App.Services
 
         List<MatchModel> GetMatchesByTeamId(int teamId);
 
+        void AddFavoriteTeam(string userId, int Id);
+
+        void RemoveFavorite(string userId, int teamId);
+
+        List<FavouriteTeamEntity> GetFavoriteTeams(string userId);
     }
 }

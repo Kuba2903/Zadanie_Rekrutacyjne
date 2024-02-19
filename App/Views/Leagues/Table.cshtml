@@ -33,10 +33,20 @@
             <td>@x.Draws</td>
             <td>@x.Losts</td>
             <td>
-                <a class="btn btn-primary"
-                   asp-action="Favourite"
-                   asp-controller="Leagues"
-                   asp-route-id=@x.Id>Add to favourite</a>
+                @if (x.IsFavourite)
+                {
+                    <a class="btn btn-primary"
+                       asp-action="RemoveFavorite"
+                       asp-controller="Leagues"
+                       asp-route-id="@x.Id">Remove from favourite</a>
+                }
+                else
+                {
+                    <a class="btn btn-primary"
+                       asp-action="AddFavourite"
+                       asp-controller="Leagues"
+                       asp-route-id="@x.Id">Add to favourite</a>
+                }
             </td>
             <td>
                 <a class="btn btn-primary"
