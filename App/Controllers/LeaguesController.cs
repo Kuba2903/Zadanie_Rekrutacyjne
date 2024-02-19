@@ -21,9 +21,10 @@ namespace App.Controllers
 
         [HttpGet]
 
-        public IActionResult Games()
+        public IActionResult Games(int Id)
         {
-            return View(_service.GetMatches());
+            var matches = _service.GetMatchesByTeamId(Id);
+            return View(matches);
         }
     }
 }

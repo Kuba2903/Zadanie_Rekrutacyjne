@@ -7,5 +7,8 @@ namespace App.Services
         List<TeamModel> GetTeams();
 
         List<MatchModel> GetMatches();
+
+        List<MatchModel> GetMatchesByTeamId(int teamId);
+
     }
 }

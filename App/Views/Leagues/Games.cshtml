@@ -1,21 +1,25 @@
 ﻿@model List<MatchModel>
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+
+<h1>Match Schedule</h1>
 
 <table class="table">
-    <tr>
-        <th>@Html.DisplayNameFor(model => model[0].HomeTeamId)</th>
-        <th>@Html.DisplayNameFor(model => model[0].AwayTeamId)</th>
-    </tr>
-
-    @foreach (var x in Model)
-    {
+    <thead>
         <tr>
-            <td>@x.HomeTeamScore</td>
-            <td>@x.AwayTeamScore</td>
+            <th>Match ID</th>
+            <th>Home team score</th>
+            <th>Away team score</th>
+            <th>Date of a game</th>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var match in Model)
+        {
+            <tr>
+                <td>@match.Id</td>
+                <td>@match.HomeTeamScore</td>
+                <td>@match.AwayTeamScore</td>
+                <td>@match.Date.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
 </table>

@@ -38,6 +38,12 @@
                    asp-controller="Leagues"
                    asp-route-id=@x.Id>Add to favourite</a>
             </td>
+            <td>
+                <a class="btn btn-primary"
+                   asp-action="Games"
+                   asp-controller="Leagues"
+                   asp-route-id=@x.Id>Schedule</a>
+            </td>
         </tr>
     }
 

@@ -267,10 +267,82 @@ namespace Data
                 {
                     Id = 1,
                     Date = new DateTime(2023,2,16),
-                    HomeTeamId = 11, 
-                    AwayTeamId = 4, 
+                    HomeTeamId = 1, 
+                    AwayTeamId = 18, 
                     HomeTeamScore = 2, 
                     AwayTeamScore = 1 
+                },
+                new MatchEntity()
+                {
+                    Id = 2,
+                    Date = new DateTime(2023, 2, 16),
+                    HomeTeamId = 2,
+                    AwayTeamId = 17,
+                    HomeTeamScore = 3,
+                    AwayTeamScore = 0
+                },
+                new MatchEntity()
+                {
+                    Id =3,
+                    Date = new DateTime(2023, 2, 16),
+                    HomeTeamId = 3,
+                    AwayTeamId= 16,
+                    HomeTeamScore = 4,
+                    AwayTeamScore= 3
+                },
+                new MatchEntity()
+                {
+                    Id=4,
+                    Date = new DateTime(2023, 2, 16),
+                    HomeTeamId = 4,
+                    AwayTeamId = 15,
+                    HomeTeamScore = 1,
+                    AwayTeamScore = 2
+                },
+                new MatchEntity()
+                {
+                    Id = 5,
+                    Date = new DateTime(2023, 2, 16),
+                    HomeTeamId = 5,
+                    AwayTeamId = 14,
+                    HomeTeamScore = 1,
+                    AwayTeamScore = 1
+                },
+                new MatchEntity()
+                {
+                    Id = 6,
+                    Date = new DateTime(2023, 2, 16),
+                    HomeTeamId = 6,
+                    AwayTeamId = 13,
+                    HomeTeamScore = 2,
+                    AwayTeamScore = 3
+                },
+                new MatchEntity()
+                {
+                    Id = 7,
+                    Date = new DateTime(2023, 2, 16),
+                    HomeTeamId = 7,
+                    AwayTeamId = 12,
+                    HomeTeamScore = 2,
+                    AwayTeamScore = 1
+                },
+                new MatchEntity()
+                {
+                    Id = 8,
+                    Date = new DateTime(2023, 2, 16),
+                    HomeTeamId = 8,
+                    AwayTeamId = 11,
+                    HomeTeamScore = 2,
+                    AwayTeamScore = 2
+                },
+                new MatchEntity()
+                {
+                    Id = 9,
+                    Date = new DateTime(2023, 2, 16),
+                    HomeTeamId = 9,
+                    AwayTeamId = 10,
+                    HomeTeamScore = 4,
+                    AwayTeamScore = 1
                 }
             );
 

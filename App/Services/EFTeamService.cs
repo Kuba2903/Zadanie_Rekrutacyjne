@@ -14,5 +14,13 @@ namespace App.Services
         public List<TeamModel> GetTeams() => _dbContext.Teams.Select(t => Mapper.EntityToModel(t)).ToList();
 
         public List<MatchModel> GetMatches() => _dbContext.Matches.Select(m => Mapper.EntityToModel(m)).ToList();
+
+        public List<MatchModel> GetMatchesByTeamId(int Id)
+        {
+            return _dbContext.Matches
+                              .Where(m => m.HomeTeamId == Id || m.AwayTeamId == Id)
+                              .Select(m => Mapper.EntityToModel(m))
+                              .ToList();
+        }
     }
 }
