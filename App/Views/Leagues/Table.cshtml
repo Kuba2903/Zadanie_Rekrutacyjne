@@ -24,7 +24,9 @@
     @foreach (var x in Model)
     {
         <tr>
-            <td>@x.League_Position</td>
+            <td style="background-color: @(x.League_Position <= 4 ? "green" : x.League_Position >= 16 ? "red" : "transparent")">
+                @x.League_Position
+            </td>
             <td>@x.Name</td>
             <td>@x.Points</td>
             <td>@x.Goal_Diff</td>
