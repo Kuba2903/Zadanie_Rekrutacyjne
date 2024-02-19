@@ -32,5 +32,7 @@ namespace App.Models
 
         [Display(Name = "L")]
         public byte Losts { get; set; }
+
+        public bool IsFavourite { get; set; }
     }
 }

@@ -14,6 +14,7 @@ namespace Data
     {
         public DbSet<TeamEntity> Teams { get; set; }
         public DbSet<MatchEntity> Matches { get; set; }
+        public DbSet<FavouriteTeamEntity> Favourites { get; set; }
 
         private string DbPath { get; set; }
         public AppDbContext()

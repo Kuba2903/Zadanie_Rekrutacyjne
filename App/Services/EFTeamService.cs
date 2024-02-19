@@ -1,5 +1,6 @@
 ﻿using App.Models;
 using Data;
+using Data.Entities;
 
 namespace App.Services
 {
@@ -23,9 +24,40 @@ namespace App.Services
                               .ToList();
         }
 
-        public void AddFavoriteTeam(string userId, int teamId)
+        public void AddFavoriteTeam(string userId, int Id)
         {
-            throw new NotImplementedException();
+            // Sprawdź, czy drużyna nie jest już ulubioną drużyną użytkownika
+            var existingFavorite = _dbContext.Favourites
+                                             .FirstOrDefault(ft => ft.UserId == userId && ft.TeamId == Id);
+
+            // Jeśli drużyna nie jest jeszcze ulubioną, dodaj ją
+            if (existingFavorite == null)
+            {
+                var favoriteTeam = new FavouriteTeamEntity
+                {
+                    UserId = userId,
+                    TeamId = Id
+                };
+
+                _dbContext.Favourites.Add(favoriteTeam);
+                _dbContext.SaveChanges();
+            }
         }
+
+        public void RemoveFavorite(string userId, int teamId)
+        {
+            // Sprawdź czy istnieje wpis o ulubionej drużynie dla danego użytkownika i drużyny
+            var favoriteTeam = _dbContext.Favourites.FirstOrDefault(ft => ft.UserId == userId && ft.TeamId == teamId);
+
+            // Jeśli istnieje taki wpis, usuń go z bazy danych
+            if (favoriteTeam != null)
+            {
+                _dbContext.Favourites.Remove(favoriteTeam);
+                _dbContext.SaveChanges();
+            }
+        }
+
+        public List<FavouriteTeamEntity> GetFavoriteTeams(string userId) => _dbContext.Favourites.Where(ft => ft.UserId == userId).ToList();
+
     }
 }
