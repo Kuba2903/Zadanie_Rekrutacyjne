@@ -365,6 +365,12 @@ namespace Data
             modelBuilder.Entity<IdentityUser>().HasData(user);
 
 
+            modelBuilder.Entity<FavouriteTeamEntity>()
+            .HasKey(t => t.Id);
+
+            modelBuilder.Entity<FavouriteTeamEntity>()
+                .HasIndex(t => new { t.UserId, t.TeamId })
+                .IsUnique();
         }
     }
 }

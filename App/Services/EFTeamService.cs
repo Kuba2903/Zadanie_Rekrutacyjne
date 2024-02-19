@@ -22,5 +22,10 @@ namespace App.Services
                               .Select(m => Mapper.EntityToModel(m))
                               .ToList();
         }
+
+        public void AddFavoriteTeam(string userId, int teamId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -10,5 +10,6 @@ namespace App.Services
 
         List<MatchModel> GetMatchesByTeamId(int teamId);
 
+        void AddFavoriteTeam(string userId, int teamId);
     }
 }
